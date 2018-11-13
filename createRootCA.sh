@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-openssl genrsa -des3 -out rootCA.key 2048
-openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.pem
+openssl ecparam -out localRootCA.key -name prime256v1 -genkey
+openssl req -x509 -new -nodes -key localRootCA.key -sha256 -days 365 -out localRootCA.pem
